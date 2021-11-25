@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import HeaderCp from './components/inc/HeaderCp';
 import Main from './pages/Main';
 import AuthLogin from './pages/AuthLogin';
 import MyCart from './pages/MyCart';
@@ -14,6 +15,7 @@ import PrdView from './pages/PrdView';
 const App = () => {
   return (
     <BrowserRouter>
+      <HeaderCp />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<AuthLogin />} />
