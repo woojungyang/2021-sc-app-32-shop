@@ -18,8 +18,8 @@ const HeaderCp = () => {
   return (
     <Wrapper>
       <Logo>
-        <Link to="/ ">
-          <img src={LogoImg} alt=""></img>
+        <Link to="/">
+          <img src={LogoImg} alt="" />
         </Link>
       </Logo>
       <NaviCp />

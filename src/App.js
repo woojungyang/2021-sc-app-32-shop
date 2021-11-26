@@ -15,7 +15,6 @@ import PrdView from './pages/PrdView';
 const App = () => {
   return (
     <BrowserRouter>
-      <HeaderCp />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<AuthLogin />} />
