@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styled from '../../style';
+import styled, { Underline } from '../../style';
 import SubAllCp from './SubAllCp';
 import SubCp from './SubCp';
 
@@ -9,19 +9,29 @@ const TitleWrap = styled.div`
   padding: 1em;
 `;
 
+const TitleWrapRel = styled(TitleWrap)`
+  position: relative;
+`;
+
+const TitleLink = styled(Underline)``.withComponent(Link);
+
 const NaviCp = ({ data, type }) => {
   return (
     <li>
       {type === 'A' ? (
         <TitleWrap>
-          <Link to="/">SHOP</Link>
+          <TitleLink to="/" color="#333">
+            SHOP
+          </TitleLink>
           <SubAllCp />
         </TitleWrap>
       ) : (
-        <TitleWrap>
-          <Link to="/">{data.title}</Link>
+        <TitleWrapRel>
+          <TitleLink to="/" color="#333">
+            {data.title}
+          </TitleLink>
           <SubCp />
-        </TitleWrap>
+        </TitleWrapRel>
       )}
     </li>
   );

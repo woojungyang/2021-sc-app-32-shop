@@ -23,6 +23,7 @@ export const color = {
 };
 
 export const size = {
+  xxl: '1599px',
   xl: '1399px',
   lg: '1199px',
   md: '991px',

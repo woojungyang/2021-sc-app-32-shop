@@ -5,7 +5,8 @@ import HeaderCp from '../components/inc/HeaderCp';
 // import TestNavi from '../components/TestNavi';
 
 const Wrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1632px;
+  padding: 0 1em;
   margin: auto;
 `;
 
