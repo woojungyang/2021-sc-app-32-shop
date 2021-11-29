@@ -41,6 +41,6 @@ export const treeSlice = createSlice({
 
 /** method ************/
 export const { setTree } = treeSlice.actions;
-export default 슬라이스네임.reducer;
+export default treeSlice.reducer;
 
 // import { 동기액션, 비동기액션, 사용자함수 } from '슬라이스';

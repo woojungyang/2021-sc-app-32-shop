@@ -1,28 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Link } from 'react-router-dom';
 
-import NaviCp from './NaviCp';
-import LogoImg from '../../assets/img/ella-surf-logo-b.png';
+import { flex } from '../../style';
+import { getAllTree } from '../../store/reducers/tree-slice';
+import LogoCp from './LogoCp';
+import NaviWrapCp from './NaviWrapCp';
 
-const Wrapper = styled.header``;
-const Logo = styled.h1`
-  max-width: 70px;
-  img {
-    width: 100%;
-  }
+const Wrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 `;
 
 const HeaderCp = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTree());
+  }, [dispatch]);
+
   return (
     <Wrapper>
-      <Logo>
-        <Link to="/">
-          <img src={LogoImg} alt="" />
-        </Link>
-      </Logo>
-      <NaviCp />
+      <LogoCp type="B" />
+      <NaviWrapCp />
     </Wrapper>
   );
 };
