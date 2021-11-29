@@ -3,8 +3,8 @@ import axios from 'axios';
 
 /** state *************/
 const initialState = {
-  alltree: [],
   selTree: '',
+  allTree: [],
 };
 
 /** async action ******/
@@ -15,7 +15,6 @@ export const getAllTree = createAsyncThunk('tree/asyncTree', async () => {
     let children = v.children.map((v2) => ({ id: v2.id, title: v2.text }));
     return { id: v.id, title: v.text, children };
   });
-  // data 가공
   return tree;
 });
 
@@ -31,10 +30,11 @@ export const treeSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllTree.fulfilled, (state, { payload }) => {
+        // console.log('fulfilled', payload);
         state.allTree = payload;
       })
       .addCase(getAllTree.rejected, (state, { payload }) => {
-        console.log(payload);
+        console.log('rejected', payload);
       });
   },
 });
@@ -42,5 +42,3 @@ export const treeSlice = createSlice({
 /** method ************/
 export const { setTree } = treeSlice.actions;
 export default treeSlice.reducer;
-
-// import { 동기액션, 비동기액션, 사용자함수 } from '슬라이스';
