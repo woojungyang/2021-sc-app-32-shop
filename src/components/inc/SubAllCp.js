@@ -1,20 +1,16 @@
 import React from 'react';
 
-import styled, { Container, SmallContainer, Underline } from '../../style';
+import styled, { Container, SmallContainer, AnimationWrapper } from '../../style';
 import ImageCp from '../common/ImageCp';
 import SubAllNaviCp from './SubNaviCp';
 
-const TitleLink = styled(Underline)`
-  width: 120px;
-`;
-
-const Wrapper = styled.div`
+const Wrapper = styled(AnimationWrapper)`
   width: 100%;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
   position: absolute;
-  top: 3em;
   left: 0;
+  top: 3em;
   background-color: #fff;
 `;
 

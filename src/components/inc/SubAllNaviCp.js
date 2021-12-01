@@ -1,44 +1,58 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { Underline, color } from '../../style';
 
-const ListWrap = styled.li`
-  width: 33.3333%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+import styled, { Container, SmallContainer, Underline, css } from '../../style';
+import ImageCp from '../common/ImageCp';
+import SubAllNaviCp from './SubNaviCp';
+
+const TitleLink = styled(Underline)`
+  width: 120px;
 `;
 
-const Title = styled.h3`
-  padding: 0.5em 0;
-  font-weight: 500;
-  display: block;
-  transition: all 0.5s;
-  &:hover {
-    color: ${color.danger};
+const Wrapper = styled.div`
+  width: 100%;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: absolute;
+  left: 0;
+  top: 3em;
+  background-color: #fff;
+`;
+
+const Wrap = styled(SmallContainer)`
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+  display: flex;
+  > :nth-of-type(1) {
+    width: 60%;
   }
-`.withComponent(Link);
+  > :nth-of-type(2) {
+    width: 40%;
+  }
+`;
 
-const List = styled.a`
-  font-weight: 400;
-  padding: 0.25em 0;
-  display: block;
-  color: ${color.lightBlack};
-`
-  .withComponent(Underline)
-  .withComponent(Link);
+const SubWrap = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-const SubAllNaviCp = ({ data }) => {
+const SubAllCp = ({ data }) => {
   return (
-    <ListWrap>
-      <Title to="/">{data.title}</Title>
-      {data.children.map((v, i) => (
-        <List to="/" key={i} color={color.primary}>
-          {v.title}
-        </List>
-      ))}
-    </ListWrap>
+    <Wrapper>
+      <Container>
+        <Wrap>
+          <SubWrap>
+            {data.map((v, i) => (
+              <SubAllNaviCp data={v} key={i} />
+            ))}
+          </SubWrap>
+          <div>
+            <ImageCp maxWidth={true} src="/img/shop-banner1.jpg" className="mb-3" />
+            <ImageCp maxWidth={true} src="/img/shop-banner2.jpg" />
+          </div>
+        </Wrap>
+      </Container>
+    </Wrapper>
   );
 };
 
-export default SubAllNaviCp;
+export default SubAllCp;
