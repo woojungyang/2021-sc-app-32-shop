@@ -1,12 +1,10 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled, { Container } from '../style';
 
 import HeaderCp from '../components/inc/HeaderCp';
 // import TestNavi from '../components/TestNavi';
 
-const Wrapper = styled.div`
-  max-width: 1632px;
-  padding: 0 1em;
+const Wrapper = styled(Container)`
   margin: auto;
 `;
 

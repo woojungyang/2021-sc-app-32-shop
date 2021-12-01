@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import treeSlice from './reducers/tree-slice';
 
 const testMiddleware = () => (next) => (action) => {
-  console.log('================ Test Middleware =============');
+  console.log('===== Test Middleware =====');
   next(action);
 };
 
