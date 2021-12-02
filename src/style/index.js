@@ -14,6 +14,7 @@ export const font = {
 };
 
 export const color = {
+  grey: '#555',
   info: '#88E0EF',
   dark: '#161E54',
   danger: '#FF5151',
