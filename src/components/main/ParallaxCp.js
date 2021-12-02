@@ -1,16 +1,22 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
+import styled from '../../style';
+import { bannerApi } from '../../modules/api';
 import BannerCp from './BannerCp';
 
+const Wrapper = styled.section`
+  margin-top: 1em;
+`;
+
 const ParallaxCp = () => {
-
+  const [banner, setBanner] = useState(null);
   useEffect(() => {
-    axios.get(process.env.)
-    
-  }, [])
-
-  return <BannerCp />;
+    (async () => {
+      const [data] = await bannerApi(242);
+      setBanner(data);
+    })();
+  }, []);
+  return <Wrapper>{banner ? <BannerCp {...banner} /> : ''}</Wrapper>;
 };
 
 export default React.memo(ParallaxCp);

@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-import { filePath } from '../../modules/util';
+import { filePath } from './util';
 
 export const bannerApi = async (id) => {
   try {
@@ -22,10 +21,3 @@ export const bannerApi = async (id) => {
     console.log(err);
   }
 };
-
-axios
-  .get(process.env.REACT_APP_BANNER_URL + '?id=241')
-  .then(({ data }) => {
-    const { content: contents, BoardFiles } = data.list;
-  })
-  .catch((err) => console.log(err));

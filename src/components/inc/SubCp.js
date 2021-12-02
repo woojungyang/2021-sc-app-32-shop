@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled, { Underline, color, AnimationWrapper } from '../../style';
 
 const ListWrap = styled(AnimationWrapper)`
-  min-width: 150px;
-  padding: 1em;
+  min-width: 240px;
+  padding: 1.5em;
   position: absolute;
   top: 3em;
   left: 0;
@@ -39,4 +39,4 @@ const SubCp = ({ data }) => {
   );
 };
 
-export default SubCp;
+export default React.memo(SubCp);

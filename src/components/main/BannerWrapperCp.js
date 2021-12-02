@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 
 import styled from '../../style';
+import { bannerApi } from '../../modules/api';
 
 import BannerCp from './BannerCp';
 
@@ -13,7 +14,9 @@ const Wrapper = styled.section`
 
 const BannerWrapperCp = () => {
   const [banner, setBanner] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    (async () => setBanner(await bannerApi(241)))();
+  }, []);
 
   const settings = {
     dots: true,

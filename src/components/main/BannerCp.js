@@ -83,4 +83,4 @@ const BannerCp = ({ title, price, content, link, file, pos }) => {
   );
 };
 
-export default BannerCp;
+export default React.memo(BannerCp);

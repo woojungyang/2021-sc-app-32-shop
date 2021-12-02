@@ -41,4 +41,4 @@ const SubNavi = ({ data }) => {
   );
 };
 
-export default SubNavi;
+export default React.memo(SubNavi);
