@@ -2,30 +2,25 @@ import styled from '../../style';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Img = styled.img`
-  width: ${(props) => props.width};
-  max-width: ${(props) => (props.maxWidth ? '100%' : 'auto')};
-`;
-
-const ImageCp = ({
+const VideoCp = ({
   link,
   src,
   alt = '',
   width = 'auto',
-  maxWidth = false,
+
   className = '',
 }) => {
   return (
     <div className={className}>
       {link ? (
         <Link to={link}>
-          <Img src={src} alt={alt} />
+          <video src={src} alt={alt} loop muted autoPlay width={width} />
         </Link>
       ) : (
-        <Img src={src} alt={alt} width={width} />
+        <video src={src} alt={alt} loop muted autoPlay width={width} />
       )}
     </div>
   );
 };
 
-export default React.memo(ImageCp);
+export default React.memo(VideoCp);

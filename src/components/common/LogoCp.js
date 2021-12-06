@@ -21,4 +21,4 @@ const LogoCp = ({ type = 'B' }) => {
   );
 };
 
-export default LogoCp;
+export default React.memo(LogoCp);
