@@ -24,7 +24,9 @@ const Wrapper = styled.ul`
 const PrdWrapperCp = () => {
   const [prd, setPrd] = useState([]);
   useEffect(() => {
-    (async () => setPrd(await prdApi()))();
+    (async () => {
+      setPrd(await prdApi());
+    })();
   }, []);
   return (
     <Wrapper>
