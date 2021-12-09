@@ -18,15 +18,15 @@ const Color = styled.li`
 const ColorCp = ({ colors, listenClick }) => {
   const onClick = useCallback(
     (e) => {
-      let { name, color } = e.target.attributes;
-      listenClick(name.value, color.value);
+      let { name, color, id } = e.target.attributes;
+      listenClick(name.value, color.value, id.value);
     },
     [listenClick]
   );
   return (
     <ColorWrap>
       {colors.map((v, i) => (
-        <Color color={v.code} name={v.name} key={i} onClick={onClick} />
+        <Color color={v.code} name={v.name} key={i} id={i} onClick={onClick} />
       ))}
     </ColorWrap>
   );

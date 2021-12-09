@@ -13,6 +13,7 @@ import TitleCp from './TitleCp';
 import PriceCp from './PriceCp';
 import ColorCp from './ColorCp';
 import ColorNameCp from './ColorNameCp';
+import StarCp from './StarCp';
 
 const Wrapper = styled.li`
   position: relative;
@@ -81,7 +82,7 @@ const ButtonWrapper = styled.div`
 
 const PrdCp = ({
   title,
-  star: starData,
+  star,
   priceSale,
   priceOrigin,
   Cates,
@@ -91,6 +92,7 @@ const PrdCp = ({
 }) => {
   /* state ********/
   const [location, setLocation] = useState('Shop');
+  const [imgSrc, setImgSrc] = useState('');
   const [colorName, setColorName] = useState('');
   const [colorCode, setColorCode] = useState('');
   // const [section, setSection] = useState([]);
@@ -112,13 +114,21 @@ const PrdCp = ({
     // colorName/Code
     if (Colors.length) setColorName(Colors[0].name);
     if (Colors.length) setColorCode(Colors[0].code);
-  }, [Cates, trees, Colors]);
+    if (ProductFiles.length) setImgSrc(ProductFiles[0].saveName);
+  }, [Cates, trees, Colors, ProductFiles]);
 
   /* Event ********/
-  const listenClick = useCallback((_name, _color) => {
-    setColorName(_name);
-    setColorCode(_color);
-  }, []);
+  const listenClick = useCallback(
+    (_name, _color, _id) => {
+      setColorName(_name);
+      setColorCode(_color);
+      // 보여주기
+      if (_id == 0) setImgSrc(ProductFiles[0].saveName);
+      else if (_id < 4) setImgSrc(ProductFiles[Number(_id) + 1].saveName);
+      else setImgSrc(ProductFiles[4].saveName);
+    },
+    [ProductFiles]
+  );
 
   const onEnter = useCallback((e) => {
     setIsEnter(1);
@@ -132,7 +142,7 @@ const PrdCp = ({
   return (
     <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <ImageWrapper>
-        <ImageCp alt={title} src={filePath(ProductFiles[0].saveName)} width="100%" />
+        <ImageCp alt={title} src={filePath(imgSrc)} width="100%" />
         <HoverImg>
           {ProductFiles[1].saveName.includes('.mp4') ? (
             <VideoCp
@@ -165,6 +175,7 @@ const PrdCp = ({
           <TitleCp title={title} />
           {Colors.length ? <ColorNameCp name={colorName} code={colorCode} /> : ''}
         </div>
+        <StarCp point={star} />
         <PriceCp price={priceSale} />
         {Colors.length ? <ColorCp colors={Colors} listenClick={listenClick} /> : ''}
       </InfoWrap>

@@ -34,7 +34,6 @@ export const prdApi = async (options = {}) => {
     if (sort) query += '&sort=' + sort;
     console.log(query);
     const { data } = await axios.get(process.env.REACT_APP_PRD_URL + query);
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
