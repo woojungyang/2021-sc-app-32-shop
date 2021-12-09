@@ -18,6 +18,7 @@ const Button = styled.div`
   font-size: ${(props) => props.size};
   font-weight: ${(props) => props.bold};
   transition: all 0.5s;
+
   &:hover {
     color: ${(props) => props.colorHover};
     background-color: ${(props) => props.bgHover};

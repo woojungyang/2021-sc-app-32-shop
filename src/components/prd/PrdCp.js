@@ -1,14 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import styled, { color, media } from '../../style';
+import styled, { color, font, media } from '../../style';
+import { filePath } from '../../modules/util';
 
 import ImageCp from '../common/ImageCp';
 import VideoCp from '../common/VideoCp';
 import ButtonCp from '../common/ButtonCp';
 import FavoriteCp from '../common/FavoriteCp';
 import LocationCp from './LocationCp';
-import { filePath } from '../../modules/util';
+import TitleCp from './TitleCp';
+import PriceCp from './PriceCp';
+import ColorCp from './ColorCp';
+import ColorNameCp from './ColorNameCp';
 
 const Wrapper = styled.li`
   position: relative;
@@ -37,6 +41,7 @@ const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-family: ${font.en};
 `;
 
 const Favorite = styled(FavoriteCp)`
@@ -51,12 +56,15 @@ const ImageWrapper = styled.div`
     position: absolute;
     top: 0;
     opacity: 0;
-    transition: all 0.5s;
   }
+`;
+
+const HoverImg = styled.div`
+  display: block;
+  transition: opacity 0.5s;
+  opacity: 0;
   &:hover {
-    & > :nth-of-type(2) {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 `;
 
@@ -67,38 +75,65 @@ const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+  transition: all 0.5s;
+  opacity: ${(props) => props.isEnter};
 `;
 
 const PrdCp = ({
   title,
   star: starData,
-  price,
+  priceSale,
   priceOrigin,
   Cates,
-  Color,
-  Section,
+  Colors,
+  Sections,
   ProductFiles,
 }) => {
   /* state ********/
   const [location, setLocation] = useState('Shop');
-  const [color, setColor] = useState([]);
-  const [section, setSection] = useState([]);
-  const [star, setStar] = useState(0.0);
-  const colors = useSelector((state) => state.color.allColor);
-  const sections = useSelector((state) => state.color.allSection);
+  const [colorName, setColorName] = useState('');
+  const [colorCode, setColorCode] = useState('');
+  // const [section, setSection] = useState([]);
+  const [isEnter, setIsEnter] = useState(0);
+  const trees = useSelector((state) => state.tree.allTree);
 
   /* 데이터 가공 ********/
   useEffect(() => {
-    // 복잡한 곳
-    // let myColor = colors.filter(v => { })
-  }, [colors, sections, Cates]);
+    // location
+    console.log(Cates, Colors);
+    let _location = 'Shop';
+    if (Cates.length) {
+      let cates = Cates[0].parents ? Cates[0].parents.split(',') : [];
+      let data = trees.filter((v) => v.id === cates[0]);
+      if (data.length) _location += ' - ' + data[0].title;
+    }
+    _location += ' - ' + Cates[0].name;
+    setLocation(_location);
+    // colorName/Code
+    if (Colors.length) setColorName(Colors[0].name);
+    if (Colors.length) setColorCode(Colors[0].code);
+  }, [Cates, trees, Colors]);
+
+  /* Event ********/
+  const listenClick = useCallback((_name, _color) => {
+    setColorName(_name);
+    setColorCode(_color);
+  }, []);
+
+  const onEnter = useCallback((e) => {
+    setIsEnter(1);
+  }, []);
+
+  const onLeave = useCallback((e) => {
+    setIsEnter(0);
+  }, []);
 
   /* render ********/
   return (
-    <Wrapper>
+    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <ImageWrapper>
         <ImageCp alt={title} src={filePath(ProductFiles[0].saveName)} width="100%" />
-        <div>
+        <HoverImg>
           {ProductFiles[1].saveName.includes('.mp4') ? (
             <VideoCp
               alt={title}
@@ -112,20 +147,26 @@ const PrdCp = ({
               width="100%"
             />
           )}
-          <ButtonWrapper>
-            <ButtonCp
-              txt="ADD TO CART"
-              width="100%"
-              colorHover={color.info}
-              bgHover={color.dark}
-              bold="bold"
-            />
-          </ButtonWrapper>
-        </div>
+        </HoverImg>
+        <ButtonWrapper isEnter={isEnter}>
+          <ButtonCp
+            txt="ADD TO CART"
+            width="100%"
+            colorHover={color.info}
+            bgHover={color.dark}
+            bold="bold"
+          />
+        </ButtonWrapper>
       </ImageWrapper>
       <Favorite size="1em" />
       <InfoWrap>
-        <LocationCp />
+        <LocationCp title={location} />
+        <div className="w-100 d-flex justify-content-between align-items-center">
+          <TitleCp title={title} />
+          {Colors.length ? <ColorNameCp name={colorName} code={colorCode} /> : ''}
+        </div>
+        <PriceCp price={priceSale} />
+        {Colors.length ? <ColorCp colors={Colors} listenClick={listenClick} /> : ''}
       </InfoWrap>
     </Wrapper>
   );
