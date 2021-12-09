@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { Container } from '../style';
+import styled, { Container, css } from '../style';
 
 import HeaderCp from '../components/header/HeaderCp';
 import BannerWrapperCp from '../components/main/BannerWrapperCp';
@@ -12,14 +12,19 @@ const Wrapper = styled(Container)`
   height: 10000px;
 `;
 
+const BottomParallax = styled(ParallaxCp)`
+  margin-top: 2em;
+`;
+
 const Main = () => {
   return (
     <Wrapper>
       <HeaderCp />
       <BannerWrapperCp />
       <NoticeWrapperCp />
-      <ParallaxCp />
+      <ParallaxCp id="242" />
       <PrdWrapperCp />
+      <BottomParallax id="243" />
     </Wrapper>
   );
 };

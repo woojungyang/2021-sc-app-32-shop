@@ -14,6 +14,7 @@ import PriceCp from './PriceCp';
 import ColorCp from './ColorCp';
 import ColorNameCp from './ColorNameCp';
 import StarCp from './StarCp';
+import SectionCp from './SectionCp';
 
 const Wrapper = styled.li`
   position: relative;
@@ -58,6 +59,15 @@ const ImageWrapper = styled.div`
     top: 0;
     opacity: 0;
   }
+`;
+
+const SectionWrapper = styled.div`
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 const HoverImg = styled.div`
@@ -167,6 +177,11 @@ const PrdCp = ({
             bold="bold"
           />
         </ButtonWrapper>
+        <SectionWrapper>
+          {Sections.map((v, i) => (
+            <SectionCp {...v} key={i} />
+          ))}
+        </SectionWrapper>
       </ImageWrapper>
       <Favorite size="1em" />
       <InfoWrap>

@@ -11,14 +11,14 @@ const Wrapper = styled.div`
 const positionStyle = ({ pos }) => {
   if (pos === 'L')
     return css`
-      left: 10%;
+      left: 5%;
       top: 50%;
       transform: translateY(-50%);
       text-align: left;
     `;
   else if (pos === 'R')
     return css`
-      right: 10%;
+      right: 5%;
       top: 50%;
       transform: translateY(-50%);
       text-align: right;
@@ -36,7 +36,7 @@ const Contents = styled.ul`
   max-width: 400px;
   background-color: rgba(255, 255, 255, 0.35);
   position: absolute;
-  padding: 0.5em;
+  padding: 2em;
   ${positionStyle}
 `;
 
@@ -61,7 +61,7 @@ const Content = styled.div`
   margin-bottom: 1.5em;
 `;
 
-const BannerCp = ({ title, price, content, link, file, pos }) => {
+const BannerCp = ({ title, price, content, link = '/', file, pos }) => {
   return (
     <Wrapper>
       <Contents pos={pos}>
