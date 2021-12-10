@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { color, font, media } from '../../style';
 
 const Wrapper = styled.div`
-  font-size: 1.25em;
+  font-size: ${({ size }) => size + 'em'};
   position: relative;
 `;
 
@@ -24,9 +24,9 @@ const GoldStar = styled(DefaultStar)`
   width: ${(props) => props.point + 'em'};
 `;
 
-const StarCp = ({ point }) => {
+const StarCp = ({ point, size = '1.25', className }) => {
   return (
-    <Wrapper>
+    <Wrapper size={size} className={className}>
       <DefaultStar>
         <span>★</span>
         <span>★</span>

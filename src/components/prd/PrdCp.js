@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import styled, { color, font, media } from '../../style';
+import styled, { color, font, media, css } from '../../style';
 import { filePath } from '../../modules/util';
 
 import ImageCp from '../common/ImageCp';
@@ -13,29 +13,34 @@ import TitleCp from './TitleCp';
 import PriceCp from './PriceCp';
 import ColorCp from './ColorCp';
 import ColorNameCp from './ColorNameCp';
-import StarCp from './StarCp';
+import StarCp from '../common/StarCp';
 import SectionCp from './SectionCp';
 
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
-  width: 19%;
-  margin: 0 1% 1% 0;
-  @media ${media.lg} {
-    width: 24%;
-  }
-  @media ${media.md} {
-    width: 31.8333%;
-    margin: 0 1.5% 1.5% 0;
-  }
-  @media ${media.sm} {
-    width: 48%;
-    margin: 0 2% 2% 0;
-  }
-  @media ${media.xs} {
-    width: 97.5%;
-    margin: 0 2.5% 2.5% 0;
-  }
+  margin: 0 2%;
+  ${({ isList }) =>
+    isList &&
+    css`
+      width: 19%;
+      margin: 0 1% 1% 0;
+      @media ${media.lg} {
+        width: 24%;
+      }
+      @media ${media.md} {
+        width: 31.8333%;
+        margin: 0 1.5% 1.5% 0;
+      }
+      @media ${media.sm} {
+        width: 48%;
+        margin: 0 2% 2% 0;
+      }
+      @media ${media.xs} {
+        width: 97.5%;
+        margin: 0 2.5% 2.5% 0;
+      }
+    `}
 `;
 
 const InfoWrap = styled.div`
@@ -99,6 +104,7 @@ const PrdCp = ({
   Colors,
   Sections,
   ProductFiles,
+  isList,
 }) => {
   /* state ********/
   const [location, setLocation] = useState('Shop');
@@ -112,7 +118,7 @@ const PrdCp = ({
   /* 데이터 가공 ********/
   useEffect(() => {
     // location
-    console.log(Cates, Colors);
+    // console.log(Cates, Colors);
     let _location = 'Shop';
     if (Cates.length) {
       let cates = Cates[0].parents ? Cates[0].parents.split(',') : [];
@@ -150,7 +156,7 @@ const PrdCp = ({
 
   /* render ********/
   return (
-    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave} isList={isList}>
       <ImageWrapper>
         <ImageCp alt={title} src={filePath(imgSrc)} width="100%" />
         <HoverImg>

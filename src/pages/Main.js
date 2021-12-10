@@ -10,6 +10,7 @@ import PrdWrapperCp from '../components/prd/PrdWrapperCp';
 import SurfWrapperCp from '../components/prd/SurfWrapperCp';
 import RideWrapperCp from '../components/main/RideWrapperCp';
 import InstaWrapperCp from '../components/main/InstaWrapperCp';
+import FeaturedPrdWrapperCp from '../components/prd/FeaturedPrdWrapperCp';
 
 const Wrapper = styled.div`
   margin: auto;
@@ -24,13 +25,14 @@ const Main = () => {
         <BannerWrapperCp />
         <NoticeWrapperCp />
         <ParallaxCp id="242" />
-        <PrdWrapperCp />
+        <PrdWrapperCp title="New Products" button={true} buttonName="SHOW MORE" />
         <CenterParallaxCp id="243" />
         <SurfWrapperCp />
       </Container>
       <RideWrapperCp model="ride" id="244" />
       <Container>
         <InstaWrapperCp model="insta" id="245" />
+        <FeaturedPrdWrapperCp title="Featured Products" />
       </Container>
     </Wrapper>
   );
