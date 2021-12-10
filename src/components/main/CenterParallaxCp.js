@@ -5,9 +5,10 @@ import styled from '../../style';
 
 const Wrapper = styled.section`
   margin-top: 1em;
+  border: 10px solid red;
 `;
 
-const ParallaxCp = ({ banner, id }) => {
+const CenterParallaxCp = ({ banner, id }) => {
   return (
     <Wrapper>
       <BannerCp {...banner} />;
@@ -15,4 +16,4 @@ const ParallaxCp = ({ banner, id }) => {
   );
 };
 
-export default withBannerWrapper(ParallaxCp);
+export default withBannerWrapper(CenterParallaxCp);

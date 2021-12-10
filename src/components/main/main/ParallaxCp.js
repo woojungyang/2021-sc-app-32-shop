@@ -1,7 +1,8 @@
 import React from 'react';
-import BannerCp from './BannerCp';
 import withBannerWrapper from './withBannerWrapper';
 import styled from '../../style';
+
+import BannerCp from './BannerCp';
 
 const Wrapper = styled.section`
   margin-top: 1em;
@@ -10,9 +11,9 @@ const Wrapper = styled.section`
 const ParallaxCp = ({ banner, id }) => {
   return (
     <Wrapper>
-      <BannerCp {...banner} />;
+      <BannerCp {...banner} />
     </Wrapper>
   );
 };
 
-export default withBannerWrapper(ParallaxCp);
+export default withBannerWrapper(React.memo(ParallaxCp));
