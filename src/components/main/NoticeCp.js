@@ -33,7 +33,7 @@ const Desc = styled.h4`
   margin-bottom: 0.5em;
 `;
 
-const NoticeCp = ({ title, src, content, link, button }) => {
+const NoticeWrapperCp = ({ title, src, content, link, button }) => {
   return (
     <Wrapper>
       <Img>
@@ -50,4 +50,4 @@ const NoticeCp = ({ title, src, content, link, button }) => {
   );
 };
 
-export default React.memo(NoticeCp);
+export default React.memo(NoticeWrapperCp);

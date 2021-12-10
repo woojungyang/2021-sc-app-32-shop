@@ -25,6 +25,7 @@ const BannerWrapperCp = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    dotsClass: 'slick-dots-banner',
   };
   return (
     <Wrapper>

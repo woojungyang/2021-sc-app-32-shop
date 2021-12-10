@@ -40,3 +40,31 @@ export const prdApi = async (options = {}) => {
     console.log(err);
   }
 };
+
+export const rideApi = async (id) => {
+  try {
+    const { data } = await axios.get(process.env.REACT_APP_BANNER_URL + '?id=' + id);
+    const { content: contents, files } = data;
+    const rs = contents.split('^^').map((v, i) => {
+      let [id, title, content] = v.split('|');
+      return { id, title, content, src: filePath(files[i]) };
+    });
+    return rs;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const instaApi = async (id) => {
+  try {
+    const { data } = await axios.get(process.env.REACT_APP_BANNER_URL + '?id=' + id);
+    const { content: contents, files } = data;
+    const rs = contents.split('^^').map((v, i) => {
+      let [id, star, content, writer] = v.split('|');
+      return { id, star, content, writer, src: filePath(files[i]) };
+    });
+    return rs;
+  } catch (err) {
+    console.log(err);
+  }
+};
