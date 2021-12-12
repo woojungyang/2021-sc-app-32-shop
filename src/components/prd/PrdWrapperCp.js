@@ -5,7 +5,12 @@ import withPrdWrapper from './withPrdWrapper';
 import PrdCp from './PrdCp';
 
 const Wrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
   margin-top: 1em;
+`;
+
+const Wrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
@@ -25,9 +30,11 @@ const PrdWrapperCp = (props) => {
   console.log(props);
   return (
     <Wrapper>
-      {props.prd.map((v, i) => (
-        <PrdCp {...v} key={i} isList={true} />
-      ))}
+      <Wrap>
+        {props.prd.map((v, i) => (
+          <PrdCp {...v} key={i} isList={true} />
+        ))}
+      </Wrap>
     </Wrapper>
   );
 };

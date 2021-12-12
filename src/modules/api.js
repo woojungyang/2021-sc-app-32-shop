@@ -68,3 +68,17 @@ export const instaApi = async (id) => {
     console.log(err);
   }
 };
+
+export const brandApi = async (id) => {
+  try {
+    const { data } = await axios.get(process.env.REACT_APP_BRAND_URL + '?id=' + id);
+    const list = data.map((v) => {
+      v.src = filePath(v.BoardFiles[0].saveName);
+      delete v.BoardFiles;
+      return v;
+    });
+    return list;
+  } catch (err) {
+    console.log(err);
+  }
+};
