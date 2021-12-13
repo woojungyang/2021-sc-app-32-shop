@@ -3,7 +3,7 @@ import styled, { color, Container } from '../../style';
 import CardCp from './CardCp';
 
 const Wrapper = styled.div`
-  margin: 2em 0;
+  margin-top: 2em;
   background-color: #262626;
   padding: 3em 0 4em 0;
 `;

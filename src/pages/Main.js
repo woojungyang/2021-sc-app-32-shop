@@ -16,7 +16,6 @@ import FooterWrapperCp from '../components/footer/FooterWrapperCp';
 
 const Wrapper = styled.div`
   margin: auto;
-  height: 10000px;
 `;
 
 const Main = () => {
