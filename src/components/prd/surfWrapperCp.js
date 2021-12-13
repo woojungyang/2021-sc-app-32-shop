@@ -33,7 +33,6 @@ const data = [
     link: '/prd/9',
   },
 ];
-
 const SurfWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;

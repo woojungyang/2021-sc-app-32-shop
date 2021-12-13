@@ -6,11 +6,16 @@ import styled, { SmallContainer, color, font } from '../../style';
 import RideCp from './RideCp';
 
 const Wrapper = styled.section`
+  border: 1px solid red;
   margin: 5em 0;
   background-color: ${color.cyan};
   padding: 5em 0;
+  position: relative;
+  margin: 0 auto;
 `;
 const TitleWrap = styled.div`
+width: 100%;
+position: absolute;
   font-family: ${font.en};
   color: {color.dark}
   text-align: center;
