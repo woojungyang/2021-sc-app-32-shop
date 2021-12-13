@@ -82,3 +82,14 @@ export const brandApi = async (id) => {
     console.log(err);
   }
 };
+
+export const emailApi = async (email) => {
+  try {
+    const { data } = await axios.get(
+      process.env.REACT_APP_SENDMAIL_URL + '?email=' + email
+    );
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};

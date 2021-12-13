@@ -6,7 +6,7 @@ import styled, { Container, color, font } from '../../style';
 import InstaCp from './InstaCp';
 
 const Wrapper = styled.section`
-  margin: 5em 0;
+  margin: 3em 0;
   padding: 2em 0;
 `;
 const TitleWrap = styled.div`

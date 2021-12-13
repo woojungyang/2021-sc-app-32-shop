@@ -2,14 +2,14 @@ import React from 'react';
 import styled, { color, Container, media, font } from '../../style';
 import ContactCp from './ContactCp';
 import MenuWrapCp from './MenuWrapCp';
-import EmailCp from './EmailCp';
+import EmailWrapCp from './EmailWrapCp';
 import CopyrightCp from './CopyrightCp';
 
 const Wrapper = styled.footer`
   background-color: #1a1a1a;
   color: #fff;
   font-family: ${font.en};
-  padding: 4em 0;
+  padding-top: 4em;
 `;
 
 const Wrap = styled(Container)`
@@ -88,11 +88,9 @@ const FooterWrapperCp = () => {
         <MenuWrapCp {...menus[0]} />
         <MenuWrapCp {...menus[1]} />
         <MenuWrapCp {...menus[2]} />
-        <EmailCp />
+        <EmailWrapCp />
       </Wrap>
-      <Container>
-        <CopyrightCp />
-      </Container>
+      <CopyrightCp />
     </Wrapper>
   );
 };
