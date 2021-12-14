@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import styled, { css, color, font } from '../../style';
+import styled, { css, color, font, media } from '../../style';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -38,6 +38,11 @@ const Contents = styled.ul`
   position: absolute;
   padding: 2em;
   ${positionStyle}
+  @media ${media.md} {
+    max-width: auto;
+    width: 80%;
+    font-size: 0.75em;
+  }
 `;
 
 const Title = styled.h3`
@@ -45,6 +50,9 @@ const Title = styled.h3`
   font-weight: bold;
   color: ${color.black};
   margin-bottom: 0.75em;
+  @media ${media.md} {
+    font-size: 1.5em;
+  }
 `;
 
 const Price = styled.div`
@@ -52,6 +60,9 @@ const Price = styled.div`
   font-weight: bold;
   color: ${color.primary};
   margin-bottom: 1.5em;
+  @media ${media.md} {
+    display: none;
+  }
 `;
 
 const Content = styled.div`
@@ -59,6 +70,9 @@ const Content = styled.div`
   line-height: 1.5em;
   color: ${color.dark};
   margin-bottom: 1.5em;
+  @media ${media.md} {
+    display: none;
+  }
 `;
 
 const BannerCp = ({ title, price, content, link = '/', file, pos }) => {

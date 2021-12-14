@@ -9,17 +9,12 @@ const Wrapper = styled.section`
   margin: 5em 0;
   background-color: ${color.cyan};
   padding: 5em 0;
-  position: relative;
 `;
 const TitleWrap = styled.div`
-width:1232px;
-  margin-bottom:1em;
-    display:inline;
-position: absolute;
   font-family: ${font.en};
   color: {color.dark}
   text-align: center;
-  transform: translateY(-6.5em);
+  margin-bottom: 3em;
 `;
 const Title = styled.h2`
   font-size: 3em;

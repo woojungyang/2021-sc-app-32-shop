@@ -2,13 +2,17 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-import styled, { font, color } from '../../style';
+import styled, { font, color, media } from '../../style';
 
 const Wrapper = styled.section`
   width: 33.3333%;
   display: flex;
   align-items: center;
   padding: 4em;
+  @media ${media.md} {
+    width: 100%;
+    padding: 1.5em 1em;
+  }
 `;
 const Img = styled.div`
   width: 50px;

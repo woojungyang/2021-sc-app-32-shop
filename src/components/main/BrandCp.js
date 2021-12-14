@@ -20,6 +20,39 @@ const slideConfig = {
   speed: 500,
   slidesToShow: 8,
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1199,
+      settings: {
+        slidesToShow: 6,
+        initialSlide: 6,
+        slidesToScroll: 6,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 5,
+        initialSlide: 5,
+        slidesToScroll: 5,
+      },
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 3,
+        initialSlide: 3,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
 };
 
 const BrandCp = ({ boardId }) => {
