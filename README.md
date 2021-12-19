@@ -1,4 +1,4 @@
-쇼핑몰 메인, 관리자 페이지(React.js / Node.js)
+<h1>쇼핑몰 메인, 관리자 페이지(React.js / Node.js)</h1>
 
 ---
 
