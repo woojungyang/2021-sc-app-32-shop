@@ -2,7 +2,7 @@
 
 ---
 
-domain : www.shop.woojungyang.com / www.shop.woojungyang.com/admin
+domain : www.shop.woojungyang.com / www.shop.woojungyang.com/admin <br>
 dev-tools : React.js / React-Router / Node.js / Sequelize / MariaDb / Sass / Style-Components / JsTree
 
 #### 주요기능
