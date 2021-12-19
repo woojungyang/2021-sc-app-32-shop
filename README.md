@@ -1,7 +1,5 @@
 <h1>쇼핑몰 메인, 관리자 페이지(React.js / Node.js)</h1>
 
----
-
 domain : www.shop.woojungyang.com / www.shop.woojungyang.com/admin <br>
 dev-tools : React.js / React-Router / Node.js / Sequelize / MariaDb / Sass / Style-Components / JsTree
 
